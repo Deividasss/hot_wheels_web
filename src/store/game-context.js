@@ -41,7 +41,6 @@ function GameContextProvider({ children }) {
         setShowLoseModal(false)
     }
 
-
     useEffect(() => {
         if (countdown !== null) {
             const interval = setInterval(() => {

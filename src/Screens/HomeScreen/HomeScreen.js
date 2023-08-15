@@ -68,7 +68,7 @@ const HomeScreen = () => {
     return (
 
         <div className="container w-max-[100%]  bg-banner h-[45vh] bg-no-repeat  bg-cover bg-center rounded-b-[350px] flex justify-center">
-            <div className="mt-[6%]">
+            {/* <div className="mt-[6%]">
                 <p class="text-[60px]  uppercase font-bold">Radio-Code.lt</p>
                 <form onSubmit={handleSubmit}>
                     <span className="z-10 leading-snug font-normal absolute text-center text-gray-400 bg-transparent rounded text-base items-center justify-center w-10 pl-3 py-3">
@@ -90,7 +90,7 @@ const HomeScreen = () => {
 
                     <button type="submit" className="bg-green-500 shadow-xl hover:bg-green-400 text-white font-bold rounded-full p-2 w-full text-center mt-3">SUBMIT</button>
                 </form>
-            </div>
+            </div> */}
         </div>
     )
 }
