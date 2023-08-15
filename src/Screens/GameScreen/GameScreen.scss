@@ -1,0 +1,20 @@
+.fortnite-btn {
+    background: linear-gradient(#d8a23d, #c66055);
+    font-family: "Luckiest Guy";
+    border-radius: 15px;
+}
+.fortnite-btn:hover{
+    background: linear-gradient(#b87615, #fefca3);
+    font-family: "Luckiest Guy";
+}
+
+.fortnite-btn-inner {
+    background: linear-gradient(#cfa64c, #fefb72);
+    transform: skew(-10deg);
+    color: #3c3c3c;
+    border-radius: 5px;
+}
+.fortnite-btn-inner:hover{
+    background: linear-gradient(#976d1f, #bb1111);
+    color: #e9e9ea;
+}
