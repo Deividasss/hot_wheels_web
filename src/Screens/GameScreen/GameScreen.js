@@ -52,7 +52,6 @@ const GameScreen = () => {
                         </div>
                     </>
                 )}
-
                 <GameModal showGameModal={showGameModal} closeModal={closeModal} />
                 <LoseModal />
                 <WinModal />
