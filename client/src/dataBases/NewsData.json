@@ -1,0 +1,37 @@
+{
+    "cars": [
+        {
+            "id": 1,
+            "speed": 50,
+            "image": "https://freepngimg.com/thumb/hot_wheels/27924-7-hot-wheels-file.png",
+            "model": "mercedes"
+        },
+        {
+            "id": 2,
+            "speed": 500,
+            "image": "https://banner2.cleanpng.com/20180706/vwc/kisspng-car-toy-hot-wheels-sound-game-hot-wheels-extreme-5b3f3d615ea545.3378481215308711373877.jpg",
+            "model": "BMW" 
+        },
+        {
+            "id": 3,
+            "speed": 200,
+            "image": "https://freepngimg.com/thumb/hot_wheels/27924-7-hot-wheels-file.png",
+            "model": "mercedes"
+        },
+        {
+            "id": 4,
+            "speed": 500,
+            "model": "BMW" 
+        },
+        {
+            "id": 5,
+            "speed": 200,
+            "model": "mercedes"
+        },
+        {
+            "id": 6,
+            "speed": 500,
+            "model": "BMW" 
+        }
+    ]
+}
