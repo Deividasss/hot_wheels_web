@@ -25,27 +25,29 @@ const GameScreen = () => {
                 {!gameCtx.countdown && (
                     <>
                         <div className="m-8">
-                            <div className=" justify-center flex">
-                                {gameCtx.selectedCar.image ? (
-                                    <img style={{ height: 300, width: 470 }} src={gameCtx.selectedCar.image} alt="Car" />
-                                ) : (
-                                    <img style={{ height: 300, width: 470 }} src="https://evhub-t3-dev.hyundaidrive.com/img/no-results-car-electrified.webp" alt="Default" />
-                                )}
-                            </div>
-                            <div className="bg-zinc-300 p-[1px]"></div>
                             <div className="flex justify-center">
-                                <div className="mt-4">
-                                    <p className="font-bold">Speed: <span className=" float-right ml-[150px] font-normal">{gameCtx.selectedCar.speed} km/h</span></p>
-                                    <div className="bg-zinc-500 p-[1px]"></div>
-                                    <p className="font-bold">Name: <span className=" float-right ml-[50px] font-normal">{gameCtx.selectedCar.model}</span></p>
+                                <div>
+                                    {gameCtx.selectedCar.image ? (
+                                        <img style={{ height: 280, width: 460 }} src={gameCtx.selectedCar.image} alt="Car" />
+                                    ) : (
+                                        <img style={{ height: 280, width: 460 }} src="https://evhub-t3-dev.hyundaidrive.com/img/no-results-car-electrified.webp" alt="Default" />
+                                    )}
+                                    <div onClick={() => setShowCarsModal(true)} class="ml-[85px] h-16 w-64 flex justify-center items-center">
+                                        <div class="i h-10 w-40 bg-gradient-to-br from-yellow-400 to-yellow-600 items-center rounded-full shadow-2xl cursor-pointer absolute overflow-hidden transform hover:scale-x-110 hover:scale-y-105 transition duration-300 ease-out"></div>
+                                        <a class="text-center text-white font-semibold z-10 pointer-events-none">Select Car</a>
+                                    </div>
+                                    <div className="bg-zinc-300 p-[1px]"></div>
+                                    <div className="flex justify-center">
+                                        <div className="mt-4">
+                                            <p className="font-bold">Speed: <span className=" float-right ml-[150px] font-normal">{gameCtx.selectedCar.speed} km/h</span></p>
+                                            <div className="bg-zinc-500 p-[1px]"></div>
+                                            <p className="font-bold">Model: <span className=" float-right ml-[50px] font-normal">{gameCtx.selectedCar.model}</span></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-[10%]">
-                            <div onClick={() => setShowCarsModal(true)} class=" h-16 w-64 flex justify-center items-center">
-                                <div class="i h-10 w-40 bg-gradient-to-br from-yellow-400 to-yellow-600 items-center rounded-full shadow-2xl cursor-pointer absolute overflow-hidden transform hover:scale-x-110 hover:scale-y-105 transition duration-300 ease-out"></div>
-                                <a class="text-center text-white font-semibold z-10 pointer-events-none">Select Car</a>
-                            </div>
                             <button onClick={() => setShowGameModal(true)} class="fortnite-btn flex items-center justify-center h-[85px] w-64">
                                 <span class="fortnite-btn-inner p-2 pt-3 w-11/12 text-5xl truncate">Play</span>
                             </button>
