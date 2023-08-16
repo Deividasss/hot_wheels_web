@@ -28,13 +28,14 @@ const GameScreen = () => {
                             <div className="flex justify-center">
                                 <div>
                                     {gameCtx.selectedCar.image ? (
-                                        <img style={{ height: 280, width: 460 }} src={gameCtx.selectedCar.image} alt="Car" />
+                                        <img className="h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src={gameCtx.selectedCar.image} alt="Car" />
                                     ) : (
                                         <img style={{ height: 280, width: 460 }} src="https://evhub-t3-dev.hyundaidrive.com/img/no-results-car-electrified.webp" alt="Default" />
                                     )}
-                                    <div onClick={() => setShowCarsModal(true)} class="ml-[85px] h-16 w-64 flex justify-center items-center">
-                                        <div class="i h-10 w-40 bg-gradient-to-br from-yellow-400 to-yellow-600 items-center rounded-full shadow-2xl cursor-pointer absolute overflow-hidden transform hover:scale-x-110 hover:scale-y-105 transition duration-300 ease-out"></div>
-                                        <a class="text-center text-white font-semibold z-10 pointer-events-none">Select Car</a>
+                                    <div className="mt-[10%] mb-[20px] flex justify-center">
+                                        <button onClick={() => setShowCarsModal(true)} class="fortnite-btn flex items-center justify-center h-[50px] w-[170px] md:w-[200px]">
+                                            <span class="fortnite-btn-inner p-1 pt-1 w-11/12 text-2xl truncate">Select Car</span>
+                                        </button>
                                     </div>
                                     <div className="bg-zinc-300 p-[1px]"></div>
                                     <div className="flex justify-center">
@@ -47,8 +48,8 @@ const GameScreen = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-[10%]">
-                            <button onClick={() => setShowGameModal(true)} class="fortnite-btn flex items-center justify-center h-[85px] w-64">
+                        <div className="mt-[10%] flex justify-center md:justify-start">
+                            <button onClick={() => setShowGameModal(true)} class="fortnite-btn flex items-center justify-center h-[85px] w-80 md:w-100">
                                 <span class="fortnite-btn-inner p-2 pt-3 w-11/12 text-5xl truncate">Play</span>
                             </button>
                         </div>

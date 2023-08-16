@@ -4,6 +4,7 @@ import HomeScreen from './Screens/HomeScreen/HomeScreen';
 import GameScreen from './Screens/GameScreen/GameScreen';
 import GameContextProvider from './store/game-context';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route exact path='gamescreen' element={<GameScreen />} />
             </Route>
           </Routes>
+          <Footer />
         </GameContextProvider>
       </Router >
     </>
