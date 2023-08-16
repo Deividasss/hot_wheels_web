@@ -30,7 +30,7 @@ const GameScreen = () => {
                                     {gameCtx.selectedCar.image ? (
                                         <img className="h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src={gameCtx.selectedCar.image} alt="Car" />
                                     ) : (
-                                        <img style={{ height: 280, width: 460 }} src="https://evhub-t3-dev.hyundaidrive.com/img/no-results-car-electrified.webp" alt="Default" />
+                                        <img className="h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src="https://evhub-t3-dev.hyundaidrive.com/img/no-results-car-electrified.webp" alt="Default" />
                                     )}
                                     <div className="mt-[10%] mb-[20px] flex justify-center">
                                         <button onClick={() => setShowCarsModal(true)} class="fortnite-btn flex items-center justify-center h-[50px] w-[170px] md:w-[200px]">
@@ -40,9 +40,9 @@ const GameScreen = () => {
                                     <div className="bg-zinc-300 p-[1px]"></div>
                                     <div className="flex justify-center">
                                         <div className="mt-4">
-                                            <p className="font-bold">Speed: <span className=" float-right ml-[150px] font-normal">{gameCtx.selectedCar.speed} km/h</span></p>
+                                            <p className="font-bold font-mono">Speed: <span className=" float-right ml-[150px] font-normal">{gameCtx.selectedCar.speed} km/h</span></p>
                                             <div className="bg-zinc-500 p-[1px]"></div>
-                                            <p className="font-bold">Model: <span className=" float-right ml-[50px] font-normal">{gameCtx.selectedCar.model}</span></p>
+                                            <p className="font-bold font-mono">Model: <span className=" float-right ml-[50px] font-normal">{gameCtx.selectedCar.model}</span></p>
                                         </div>
                                     </div>
                                 </div>

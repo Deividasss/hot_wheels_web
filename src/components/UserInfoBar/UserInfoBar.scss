@@ -1,19 +1,19 @@
 .wrapper {
-    border: 3px solid blue;
-  }
-  
-  .barcontainer {
-    background-color: pink;
-  }
-  
-  .completedbar {
-    background-color: lightblue;
-  }
-  
-  .label {
-    font-size: 20px;
-    color: green;
-  }
-  .jolo{
-    padding: 20px;
-  }
+  border: 3px solid blue;
+}
+
+.barcontainer {
+  background-color: pink;
+}
+
+.levelBar {
+  background: linear-gradient(#d8a23d, #c66055);
+}
+
+.label {
+  font-size: 20px;
+  color: green;
+}
+.jolo {
+  padding: 20px;
+}
