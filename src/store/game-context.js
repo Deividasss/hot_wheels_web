@@ -9,11 +9,13 @@ export const GameContext = createContext({
     level: '',
     selectedDifficulty: '',
     oponentSpeed: '',
+    alertModal: false,
     selectedCar: [],
     setTimer: () => { },
     selectDificullty: (value) => { },
     closeModal: () => { },
     setSelectedCar: () => { },
+    setAlertModal: () => { }
 });
 
 function GameContextProvider({ children }) {
@@ -24,10 +26,12 @@ function GameContextProvider({ children }) {
     const [nextLevel, setNextLevel] = useState(200)
     const [showWinModal, setShowWinModal] = useState(false);
     const [showLoseModal, setShowLoseModal] = useState(false);
+    const [showAlertModal, setShowAlertModal] = useState(false);
     const [countdown, setCountdown] = useState(null);
     const [progress, setProgress] = useState(0);
-    const [selectedDifficulty, setSelectedDifficulty] = useState('Please select difficulty');
+    const [selectedDifficulty, setSelectedDifficulty] = useState('');
     const [selectedCar, setSelectedCar] = useState("");
+    const carTotal = selectedCar.speed + selectedCar.handling + selectedCar.acceleration
 
 
     const setTimer = () => {
@@ -39,7 +43,10 @@ function GameContextProvider({ children }) {
     const closeModal = () => {
         setShowWinModal(false)
         setShowLoseModal(false)
+        setShowAlertModal(false)
     }
+
+    console.log(carTotal)
 
     useEffect(() => {
         if (countdown !== null) {
@@ -50,24 +57,25 @@ function GameContextProvider({ children }) {
 
             if (countdown === 0) {
                 clearInterval(interval);
-                const min = selectedDifficulty - 50;
+                const min = selectedDifficulty - Math.floor(Math.random() * (200 - 1) + 100);
                 const max = selectedDifficulty;
                 const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
                 setRandomNumber(randomNum);
+                console.log(randomNum)
 
-                if (selectedCar.speed > randomNum) {
-                    if (selectedDifficulty === 10) {
+                if (carTotal > randomNum) {
+                    if (selectedDifficulty === 350) {
                         setMoney((prevMoney) => prevMoney + 50);
-                    } else if (selectedDifficulty === 50) {
+                    } else if (selectedDifficulty === 600) {
                         setMoney((prevMoney) => prevMoney + 200);
                     } else {
                         setMoney((prevMoney) => prevMoney + 350);
                     }
-                    setLevelCount((prevLevel) => prevLevel + 30);
+                    setLevelCount((prevLevel) => prevLevel + 40);
                     setShowWinModal(true)
                 } else {
                     setMoney((prevMoney) => prevMoney - 10);
-                    setLevelCount((prevLevel) => prevLevel + 40);
+                    setLevelCount((prevLevel) => prevLevel + 20);
                     setShowLoseModal(true)
                 }
 
@@ -95,11 +103,13 @@ function GameContextProvider({ children }) {
         oponentSpeed: randomNumber,
         winModal: showWinModal,
         loseModal: showLoseModal,
+        alertModal: showAlertModal,
         selectedCar: selectedCar,
         setTimer: setTimer,
         selectDificullty: selectDificullty,
         closeModal: closeModal,
         setSelectedCar: setSelectedCar,
+        setAlertModal: setShowAlertModal,
     };
 
     return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

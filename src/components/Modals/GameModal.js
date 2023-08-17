@@ -11,9 +11,9 @@ const GameModal = ({ showGameModal, closeModal }) => {
     const [open, setOpen] = useState(false)
 
     const dropdownOptions = [
-        { label: 'Easy', value: 10 },
-        { label: 'Normal', value: 50 },
-        { label: 'Hard', value: 200 },
+        { label: 'Easy', value: 350 },
+        { label: 'Normal', value: 600 },
+        { label: 'Hard', value: 900 },
     ];
 
     const handleClick = () => {
@@ -38,7 +38,7 @@ const GameModal = ({ showGameModal, closeModal }) => {
                 </Transition.Child>
 
                 <div className="fixed inset-0 z-10 overflow-y-auto">
-                    <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                    <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -64,7 +64,7 @@ const GameModal = ({ showGameModal, closeModal }) => {
                                         </Transition.Child>
 
                                         <div className="fixed inset-0 z-10 overflow-y-auto">
-                                            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                                            <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
                                                 <Transition.Child
                                                     as={Fragment}
                                                     enter="ease-out duration-300"

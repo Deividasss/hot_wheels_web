@@ -6,17 +6,30 @@ import UserInfoBar from "../../components/UserInfoBar/UserInfoBar"
 import { GameContext } from "../../store/game-context"
 import { useContext, useState } from "react"
 import "../GameScreen/GameScreen.scss"
-
+import { Alert } from "react-bootstrap"
+import AlertModal from "../../components/Modals/AlertModal"
 
 const GameScreen = () => {
 
     const gameCtx = useContext(GameContext)
     const [showGameModal, setShowGameModal] = useState(false)
     const [showCarsModal, setShowCarsModal] = useState(false)
+    const [message, setMessage] = useState('');
 
     const closeModal = () => {
         setShowCarsModal(false)
         setShowGameModal(false)
+    }
+
+    const clickHandler = () => {
+        if (!gameCtx.selectedCar) {
+            setMessage(
+                "To race, first select a car"
+            );
+            gameCtx.setAlertModal(true)
+        } else {
+            setShowGameModal(true)
+        }
     }
 
     return (
@@ -32,24 +45,34 @@ const GameScreen = () => {
                                     ) : (
                                         <img className="h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src="https://evhub-t3-dev.hyundaidrive.com/img/no-results-car-electrified.webp" alt="Default" />
                                     )}
+                                    <div>
+                                        <p className="text-center font-bold text-[27px]">{gameCtx.selectedCar.manufacturer}</p>
+                                        <p className="text-center font-normal text-[20px] leading-3">{gameCtx.selectedCar.model}</p>
+                                    </div>
                                     <div className="mt-[10%] mb-[20px] flex justify-center">
-                                        <button onClick={() => setShowCarsModal(true)} class="fortnite-btn flex items-center justify-center h-[50px] w-[170px] md:w-[200px]">
+                                        <button onClick={() => setShowCarsModal(true)} class="fortnite-btn flex items-center justify-center h-[50px] w-[170px] md:w-[250px]">
                                             <span class="fortnite-btn-inner p-1 pt-1 w-11/12 text-2xl truncate">Select Car</span>
                                         </button>
                                     </div>
                                     <div className="bg-zinc-300 p-[1px]"></div>
-                                    <div className="flex justify-center">
+                                    <div className="flex justify-center w-[100%]">
                                         <div className="mt-4">
-                                            <p className="font-bold font-mono">Speed: <span className=" float-right ml-[150px] font-normal">{gameCtx.selectedCar.speed} km/h</span></p>
-                                            <div className="bg-zinc-500 p-[1px]"></div>
-                                            <p className="font-bold font-mono">Model: <span className=" float-right ml-[50px] font-normal">{gameCtx.selectedCar.model}</span></p>
+                                            <p className="font-bold font-mono">Speed <span className="  ml-[50px] font-normal"><div class="w-[300px] bg-gray-200 rounded-b-lg">
+                                                <div class="levelBar text-xs font-medium p-[5px] text-blue-100 text-center p-0.5 leading-none " style={{ width: `${(gameCtx.selectedCar.speed)}px` }}></div>
+                                            </div></span></p>
+                                            <p className="font-bold font-mono">Handling <span className="ml-[50px] font-normal"><div class="w-[300px] bg-gray-200 rounded-b-lg">
+                                                <div class="levelBar text-xs font-medium p-[5px] text-blue-100 text-center p-0.5 leading-none" style={{ width: `${(gameCtx.selectedCar.handling)}px` }}></div>
+                                            </div></span></p>
+                                            <p className="font-bold font-mono">Acceleration <span className="ml-[50px] font-normal"><div class="w-[300px] bg-gray-200 rounded-b-lg">
+                                                <div class="levelBar text-xs font-medium p-[5px] text-blue-100 text-center p-0.5 leading-none" style={{ width: `${(gameCtx.selectedCar.acceleration)}px` }}></div>
+                                            </div></span></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-[10%] flex justify-center md:justify-start">
-                            <button onClick={() => setShowGameModal(true)} class="fortnite-btn flex items-center justify-center h-[85px] w-80 md:w-100">
+                            <button onClick={() => clickHandler()} class="fortnite-btn flex items-center justify-center h-[85px] w-80 md:w-100">
                                 <span class="fortnite-btn-inner p-2 pt-3 w-11/12 text-5xl truncate">Play</span>
                             </button>
                         </div>
@@ -59,6 +82,7 @@ const GameScreen = () => {
                 <LoseModal />
                 <WinModal />
                 <CarsModal showCarsModal={showCarsModal} closeModal={closeModal} />
+                <AlertModal message={message}/>
             </div>
             <div>
                 {gameCtx.countdown !== null && gameCtx.countdown > 0 && (
