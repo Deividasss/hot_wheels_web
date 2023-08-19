@@ -1,4 +1,4 @@
-import CarsModal from "../../components/Modals/CarsModal"
+import CarsModal from "../MyGarageScreen/MyGarageScreen"
 import GameModal from "../../components/Modals/GameModal"
 import LoseModal from "../../components/Modals/LoseModal"
 import WinModal from "../../components/Modals/WinModal"
@@ -8,6 +8,9 @@ import { useContext, useState } from "react"
 import "../GameScreen/GameScreen.scss"
 import { Alert } from "react-bootstrap"
 import AlertModal from "../../components/Modals/AlertModal"
+import NoCarImg from "../../assets/img/noCar.png"
+import 'animate.css';
+import { Navigate, useNavigate } from "react-router-dom"
 
 const GameScreen = () => {
 
@@ -15,6 +18,8 @@ const GameScreen = () => {
     const [showGameModal, setShowGameModal] = useState(false)
     const [showCarsModal, setShowCarsModal] = useState(false)
     const [message, setMessage] = useState('');
+    const navigate = useNavigate()
+    window.scrollTo(0, 0)
 
     const closeModal = () => {
         setShowCarsModal(false)
@@ -34,7 +39,7 @@ const GameScreen = () => {
 
     return (
         <div>
-            <div className="grid grid-flow-row md:grid-flow-col mt-[2%]">
+            <div className="grid grid-flow-row md:grid-flow-col mt-[2%] animate__animated animate__backInDown">
                 {!gameCtx.countdown && (
                     <>
                         <div className="m-8">
@@ -43,27 +48,27 @@ const GameScreen = () => {
                                     {gameCtx.selectedCar.image ? (
                                         <img className="h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src={gameCtx.selectedCar.image} alt="Car" />
                                     ) : (
-                                        <img className="h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src="https://evhub-t3-dev.hyundaidrive.com/img/no-results-car-electrified.webp" alt="Default" />
+                                        <img className="h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src={NoCarImg} alt="Default" />
                                     )}
                                     <div>
                                         <p className="text-center font-bold text-[27px]">{gameCtx.selectedCar.manufacturer}</p>
                                         <p className="text-center font-normal text-[20px] leading-3">{gameCtx.selectedCar.model}</p>
                                     </div>
                                     <div className="mt-[10%] mb-[20px] flex justify-center">
-                                        <button onClick={() => setShowCarsModal(true)} class="fortnite-btn flex items-center justify-center h-[50px] w-[170px] md:w-[250px]">
+                                        <button onClick={() => navigate("/mygarage")} class="fortnite-btn flex items-center justify-center h-[50px] w-[170px] md:w-[250px]">
                                             <span class="fortnite-btn-inner p-1 pt-1 w-11/12 text-2xl truncate">Select Car</span>
                                         </button>
                                     </div>
                                     <div className="bg-zinc-300 p-[1px]"></div>
                                     <div className="flex justify-center w-[100%]">
                                         <div className="mt-4">
-                                            <p className="font-bold font-mono">Speed <span className="  ml-[50px] font-normal"><div class="w-[300px] bg-gray-200 rounded-b-lg">
+                                            <p className="font-bold font-mono">Speed <span className="  ml-[50px] font-normal"><div class="w-[300px] bg-gray-200">
                                                 <div class="levelBar text-xs font-medium p-[5px] text-blue-100 text-center p-0.5 leading-none " style={{ width: `${(gameCtx.selectedCar.speed)}px` }}></div>
                                             </div></span></p>
-                                            <p className="font-bold font-mono">Handling <span className="ml-[50px] font-normal"><div class="w-[300px] bg-gray-200 rounded-b-lg">
+                                            <p className="font-bold font-mono">Handling <span className="ml-[50px] font-normal"><div class="w-[300px] bg-gray-200">
                                                 <div class="levelBar text-xs font-medium p-[5px] text-blue-100 text-center p-0.5 leading-none" style={{ width: `${(gameCtx.selectedCar.handling)}px` }}></div>
                                             </div></span></p>
-                                            <p className="font-bold font-mono">Acceleration <span className="ml-[50px] font-normal"><div class="w-[300px] bg-gray-200 rounded-b-lg">
+                                            <p className="font-bold font-mono">Acceleration <span className="ml-[50px] font-normal"><div class="w-[300px] bg-gray-200">
                                                 <div class="levelBar text-xs font-medium p-[5px] text-blue-100 text-center p-0.5 leading-none" style={{ width: `${(gameCtx.selectedCar.acceleration)}px` }}></div>
                                             </div></span></p>
                                         </div>
@@ -72,7 +77,7 @@ const GameScreen = () => {
                             </div>
                         </div>
                         <div className="mt-[10%] flex justify-center md:justify-start">
-                            <button onClick={() => clickHandler()} class="fortnite-btn flex items-center justify-center h-[85px] w-80 md:w-100">
+                            <button onClick={() => clickHandler()} class="animate__animated animate__bounce fortnite-btn flex items-center justify-center h-[85px] w-80 md:w-100">
                                 <span class="fortnite-btn-inner p-2 pt-3 w-11/12 text-5xl truncate">Play</span>
                             </button>
                         </div>
@@ -81,7 +86,6 @@ const GameScreen = () => {
                 <GameModal showGameModal={showGameModal} closeModal={closeModal} />
                 <LoseModal />
                 <WinModal />
-                <CarsModal showCarsModal={showCarsModal} closeModal={closeModal} />
                 <AlertModal message={message}/>
             </div>
             <div>

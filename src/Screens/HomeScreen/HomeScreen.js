@@ -3,12 +3,14 @@ import "../HomeScreen/HomeScreen.scss"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import MyGarage from "../MyGarageScreen/MyGarageScreen"
 const HomeScreen = () => {
 
     const [imput, setimput] = useState({
         'UserName': '',
         'Password': ''
     })
+    window.scrollTo(0, 0)
     const [user, setUser] = useState()
     const navigate = useNavigate()
     const [showErrorMessage, setshowErrorMessage] = useState({
@@ -16,7 +18,6 @@ const HomeScreen = () => {
         'status': "",
     })
 
-    console.log(user)
 
     const handleChange = (e) => {
         setimput({
@@ -46,7 +47,7 @@ const HomeScreen = () => {
             let response = await axios.post("http://localhost:5000/login", { "username": imput.UserName, "password": imput.Password })
             if (response) {
 
-                navigate("gateway",{state: response.data.token})
+                navigate("gateway", { state: response.data.token })
             } else {
                 setshowErrorMessage({ message: "not okey", status: "danger" })
             }
@@ -66,9 +67,9 @@ const HomeScreen = () => {
     }, [])
 
     return (
-
-        <div className="container w-max-[100%]  bg-banner h-[45vh] bg-no-repeat  bg-cover bg-center rounded-b-[350px] flex justify-center">
-            {/* <div className="mt-[6%]">
+        <>
+            <div className="container w-max-[100%]  bg-banner h-[45vh] bg-no-repeat  bg-cover bg-center rounded-b-[350px] flex justify-center">
+                {/* <div className="mt-[6%]">
                 <p class="text-[60px]  uppercase font-bold">Radio-Code.lt</p>
                 <form onSubmit={handleSubmit}>
                     <span className="z-10 leading-snug font-normal absolute text-center text-gray-400 bg-transparent rounded text-base items-center justify-center w-10 pl-3 py-3">
@@ -91,7 +92,9 @@ const HomeScreen = () => {
                     <button type="submit" className="bg-green-500 shadow-xl hover:bg-green-400 text-white font-bold rounded-full p-2 w-full text-center mt-3">SUBMIT</button>
                 </form>
             </div> */}
-        </div>
-    )
+            </div>
+        </>
+    );
+
 }
 export default HomeScreen
