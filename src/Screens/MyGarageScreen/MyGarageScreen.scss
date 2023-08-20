@@ -1,0 +1,11 @@
+header h2 {
+    font-size: 80px;
+    background: linear-gradient(#d8a23d, #c66055);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: "Luckiest Guy";
+}
+.search{
+    transition: width 0.4s ease-in-out;
+}

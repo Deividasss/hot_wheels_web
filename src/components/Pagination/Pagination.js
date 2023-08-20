@@ -1,31 +1,79 @@
+import {usePagination, DOTS} from "./usePagination";
+import classnames from 'classnames'
+import "./Pagination.scss"
 
+const Pagination = props => {
+    const {
+        onPageChange,
+        totalCount,
+        siblingCount = 1,
+        currentPage,
+        pageSize,
+        className
+    } = props;
 
-const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
+    const paginationRange = usePagination({
+        currentPage,
+        totalCount,
+        siblingCount,
+        pageSize
+    });
 
-    const pageNumbers = [];
-
-    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-        pageNumbers.push(i);
+    if (currentPage === 0 || paginationRange.length < 2) {
+        return null;
     }
 
+    const onNext = () => {
+        onPageChange(currentPage + 1);
+    };
 
+    const onPrevious = () => {
+        onPageChange(currentPage - 1);
+    };
+
+    let lastPage = paginationRange[paginationRange.length - 1];
     return (
-        <div className="text-center">
-            <p>Page{currentPage} out of {pageNumbers.length}</p>
-            <nav>
-                <ul className='pagination flex justify-center'>
-                    {pageNumbers.map(number => (
-                        <li key={number} className='page-item m-[2px]'>
-                            <div className="mt-[10%] flex justify-center md:justify-start">
-                                <button onClick={() => paginate(number)} class=" fortnite-btn flex items-center justify-center h-[30px] w-10 md:w-100">
-                                    <span class="fortnite-btn-inner pl-2 pr-2 truncate">{number}</span>
-                                </button>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
-        </div>
-    )
-}
+        <ul
+            className={classnames('pagination-container', { [className]: className })}
+        >
+            {/* Left navigation arrow */}
+            <li
+                className={classnames('pagination-item', {
+                    disabled: currentPage === 1
+                })}
+                onClick={onPrevious}
+            >
+                <div className="arrow left" />
+            </li>
+            {paginationRange.map(pageNumber => {
+
+                // If the pageItem is a DOT, render the DOTS unicode character
+                if (pageNumber === DOTS) {
+                    return <li className="pagination-item dots">&#8230;</li>;
+                }
+
+                // Render our Page Pills
+                return (
+                    <li
+                        className={classnames('pagination-item', {
+                            selected: pageNumber === currentPage
+                        })}
+                        onClick={() => onPageChange(pageNumber)}
+                    >
+                        {pageNumber}
+                    </li>
+                );
+            })}
+            {/*  Right Navigation arrow */}
+            <li
+                className={classnames('pagination-item', {
+                    disabled: currentPage === lastPage
+                })}
+                onClick={onNext}
+            >
+                <div className="arrow right" />
+            </li>
+        </ul>
+    );
+};
 export default Pagination

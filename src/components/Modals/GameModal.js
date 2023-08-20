@@ -3,12 +3,14 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { useContext } from 'react'
 import { GameContext } from '../../store/game-context'
+import { useNavigate } from 'react-router-dom'
 
 const GameModal = ({ showGameModal, closeModal }) => {
 
     const cancelButtonRef = useRef(null)
     const gameCtx = useContext(GameContext)
     const [open, setOpen] = useState(false)
+    const navigate = useNavigate()
 
     const dropdownOptions = [
         { label: 'Easy', value: 350 },
