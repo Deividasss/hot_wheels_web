@@ -4,16 +4,23 @@
 
 .barcontainer {
   background-color: pink;
+  margin-left: 35px;
 }
 
 .levelBar {
-  background: linear-gradient(#d8a23d, #c66055);
+  background: linear-gradient(#ff0101, #c69155);
 }
 
 .label {
   font-size: 20px;
   color: green;
 }
-.jolo {
-  padding: 20px;
+.level {
+  background: #d7a03d;
+  padding: 6px 15px 10px 15px;
+}
+.moneyBar{
+  background: #d7a03d;
+  padding: 6px 20px 6px 30px;
+  margin: -40px 0 0 45px;
 }

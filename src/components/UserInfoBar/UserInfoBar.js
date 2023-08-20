@@ -7,16 +7,24 @@ const UserInfoBar = () => {
     const gameCtx = useContext(GameContext)
 
     return (
-        <div>
-            <div className=" flex justify-center">
-                <p>{gameCtx.level}</p>
-                <p className="absolute" >Next Level {gameCtx.levelCount} / {Math.round(gameCtx.nextLevel)}</p>
-                <div class="w-[90%] bg-gray-200 rounded-b-lg">
-                    <div class="levelBar text-xs font-medium p-[12px] text-blue-100 text-center p-0.5 leading-none rounded-bl-lg" style={{ width: `${(gameCtx.levelCount / gameCtx.nextLevel) * 100}%` }}></div>
+        <>
+            <div className="flex">
+                <p className="level font-mono font-medium text-[30px] rounded-bl-[25px] md:rounded-none">{gameCtx.level}</p>
+                <div className="w-[100%]">
+                    <p className="absolute font-mono font-medium ml-2" >Next Level {gameCtx.levelCount} / {Math.round(gameCtx.nextLevel)}</p>
+                    <div class="bg-[#d7a03d]">
+                        <div class="levelBar rounded-b-lg text-xs font-medium p-[12px] text-blue-100 text-center p-0.5 leading-none " style={{ width: `${(gameCtx.levelCount / gameCtx.nextLevel) * 100}%` }}></div>
+                    </div>
                 </div>
             </div>
-            <p className="ml-[6%]">{gameCtx.money}</p>
-        </div>
+            <div className="flex moneyBar rounded-br-[25px]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-[18px] font-mono">{gameCtx.money}</p>
+            </div>
+        </>
+
 
     )
 }

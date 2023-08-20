@@ -39,7 +39,7 @@ const GameScreen = () => {
     }
 
     return (
-        <div className="sm:ml-64">
+        <div className="sm:ml-64 mt-5">
             <div className="grid grid-flow-row md:grid-flow-col animate__animated animate__backInDown">
                 {!gameCtx.countdown && (
                     <>

@@ -29,7 +29,7 @@ const MyGarage = () => {
 
     return (
         <>
-            <div className='animate__animated animate__fadeInDown sm:ml-64'>
+            <div className='animate__animated animate__fadeInDown mt-5 sm:ml-64'>
                 <header className='md:mx-[13%] text-center md:text-left'>
                     <h2 className='garageTitle'>MY GARAGE</h2>
                     <form className=' md:m-0 mx-12 mb-12'>

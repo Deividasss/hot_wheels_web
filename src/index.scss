@@ -1,7 +1,6 @@
 /* Cool infinite background scrolling animation.
  * Twitter: @kootoopas
  */
-
 /* Exo thin font from Google. */
 @import url(https://fonts.googleapis.com/css?family=Exo:100);
 
@@ -65,10 +64,10 @@ body {
         sans-serif;
     background: url($bg-url) repeat 0 0;
 
-    -webkit-animation: bg-scrolling-reverse 6s infinite; /* Safari 4+ */
-    -moz-animation: bg-scrolling-reverse 6s infinite; /* Fx 5+ */
-    -o-animation: bg-scrolling-reverse 6s infinite; /* Opera 12+ */
-    animation: bg-scrolling-reverse 6s infinite; /* IE 10+ */
+    -webkit-animation: bg-scrolling-reverse 5s infinite; /* Safari 4+ */
+    -moz-animation: bg-scrolling-reverse 5s infinite; /* Fx 5+ */
+    -o-animation: bg-scrolling-reverse 5s infinite; /* Opera 12+ */
+    animation: bg-scrolling-reverse 5s infinite; /* IE 10+ */
     -webkit-animation-timing-function: linear;
     -moz-animation-timing-function: linear;
     -o-animation-timing-function: linear;
