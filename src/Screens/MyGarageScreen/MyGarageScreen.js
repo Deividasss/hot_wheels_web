@@ -29,9 +29,9 @@ const MyGarage = () => {
 
     return (
         <>
-            <div className='animate__animated animate__fadeInDown'>
+            <div className='animate__animated animate__fadeInDown sm:ml-64'>
                 <header className='md:mx-[13%] text-center md:text-left'>
-                    <h2 className='garageTitle mt-5'>MY GARAGE</h2>
+                    <h2 className='garageTitle'>MY GARAGE</h2>
                     <form className=' md:m-0 mx-12 mb-12'>
                         <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                         <div class="relative">

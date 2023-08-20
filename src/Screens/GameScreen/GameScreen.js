@@ -39,11 +39,11 @@ const GameScreen = () => {
     }
 
     return (
-        <div>
-            <div className="grid grid-flow-row md:grid-flow-col mt-[2%] animate__animated animate__backInDown">
+        <div className="sm:ml-64">
+            <div className="grid grid-flow-row md:grid-flow-col animate__animated animate__backInDown">
                 {!gameCtx.countdown && (
                     <>
-                        <div className="m-8">
+                        <div className="md:m-8">
                             <div className="flex justify-center">
                                 <div>
                                     {gameCtx.selectedCar.image ? (
