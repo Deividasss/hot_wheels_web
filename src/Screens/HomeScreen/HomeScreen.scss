@@ -1,0 +1,56 @@
+.browser-mockup {
+    border-top: 2em solid rgba(230, 230, 230, 0.7);
+    position: relative;
+    align-items: center;
+}
+
+.browser-mockup:before {
+    display: block;
+    position: absolute;
+    content: "";
+    top: -1.25em;
+    left: 1em;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: #f44;
+    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+}
+
+.browser-mockup>* {
+    display: block;
+}
+
+.gradient {
+    background: linear-gradient(#d8a23d, #c66055);
+}
+
+button,
+.gradient2 {
+    background-color: #f39f86;
+    background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
+}
+
+.headerTitle {
+    background: linear-gradient(#d8a23d, #c66055);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: "Luckiest Guy";
+}
+
+.mockupTitle {
+    background: linear-gradient(#d8a23d, #c66055);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: "Luckiest Guy";
+}
+
+.collectionTitle {
+    background: linear-gradient(#d8a23d, #c66055);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: "Luckiest Guy";
+}

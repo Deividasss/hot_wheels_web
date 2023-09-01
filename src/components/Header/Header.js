@@ -28,7 +28,7 @@ const Header = () => {
                 </svg>
             </button>
 
-            <aside id="logo-sidebar" className={`fixed top-0 left-0 z-40 w-64 h-screen md:pt-10 transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'
+            <aside id="logo-sidebar" className={`fixed top-0 left-0 z-40 w-52 h-screen md:pt-10 transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'
                 } sm:translate-x-0 sidebar`}
                 aria-label="Sidebar">
                 <div class="h-full px-3 pb-4 overflow-y-auto sidebar">
