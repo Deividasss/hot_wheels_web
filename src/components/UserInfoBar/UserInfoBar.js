@@ -8,7 +8,7 @@ const UserInfoBar = () => {
 
     return (
         <>
-            <div className="md:flex">
+            <div className="flex">
                 <p className="level text-gray-700 text-[40px]">{gameCtx.level}</p>
                 <div className="w-[90%]">
                     <p className="absolute nextLevel font-medium ml-2" >Next Level {gameCtx.levelCount} / {Math.round(gameCtx.nextLevel)}</p>
