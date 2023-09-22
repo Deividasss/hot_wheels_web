@@ -46,8 +46,6 @@ function GameContextProvider({ children }) {
         setShowAlertModal(false)
     }
 
-    console.log(carTotal)
-
     useEffect(() => {
         if (countdown !== null) {
             const interval = setInterval(() => {
@@ -61,7 +59,6 @@ function GameContextProvider({ children }) {
                 const max = selectedDifficulty;
                 const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
                 setRandomNumber(randomNum);
-                console.log(randomNum)
 
                 if (carTotal > randomNum) {
                     if (selectedDifficulty === 350) {

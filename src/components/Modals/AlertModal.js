@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { useContext } from 'react'
 import { GameContext } from '../../store/game-context'
+import SelectCarPng from "../../assets/img/selectCar.png"
 
 const AlertModal = ({ message, openAlert }) => {
 
@@ -37,8 +38,9 @@ const AlertModal = ({ message, openAlert }) => {
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 ">
-                                        <div className="mt-2">
-                                            <p className="text-[20px] font-bold text-black">
+                                        <div className="mt-2 ">
+                                            <img className='animate__animated animate__pulse animate__infinite mx-auto p-5 w-52' src={SelectCarPng}></img>
+                                            <p className="text-[20px] text-gray-700 sm:text-[30px] font-mono font-bold text-black">
                                                 {message}
                                             </p>
                                         </div>
@@ -47,7 +49,7 @@ const AlertModal = ({ message, openAlert }) => {
                                 <div className="bg-gray-50 px-4 py-3 w-full">
                                     <button
                                         type="button"
-                                        className="w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500  sm:w-[100%]"
+                                        className="w-full justify-center rounded-md bg-orange-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-600  sm:w-[100%]"
                                         onClick={gameCtx.closeModal}
                                     >
                                         Close

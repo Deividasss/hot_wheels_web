@@ -73,7 +73,7 @@ const HomeScreen = () => {
 
     return (
         <>
-            <div className="sm:ml-52 mt-5">
+            <div className="sm:ml-52">
                 <div class="container mx-auto my-20 animate__animated animate__fadeIn">
                     <div class="text-center px-3 md:pt-12">
                         <h1 class="headerTitle my-4 text-[45px] md:text-[50px] lg:text-[70px] leading-tight">
@@ -152,7 +152,7 @@ const HomeScreen = () => {
                         </div>
 
                         <div class="flex flex-wrap flex-col-reverse sm:flex-row">
-                            <div class="w-full sm:w-1/2 ml-10 sm:ml-0 lg:p-6">
+                            <div class="w-full sm:w-1/2 pl-12 sm:ml-0 lg:p-6">
                                 <img src={worldWidePng}></img>
                             </div>
                             <div class="w-full sm:w-1/2 p-6 mt-6">

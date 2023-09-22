@@ -11,7 +11,8 @@ import AlertModal from "../../components/Modals/AlertModal"
 import NoCarImg from "../../assets/img/noCar.png"
 import 'animate.css';
 import { Navigate, useNavigate } from "react-router-dom"
-import RacingScreen from "../../components/RacingScreen/RacingScreen.js"
+import RacingScreen from "../RacingScreen/RacingScreen.js"
+import USERS from "../../dataBases/Users.json"
 
 const GameScreen = () => {
 
@@ -20,6 +21,7 @@ const GameScreen = () => {
     const [showCarsModal, setShowCarsModal] = useState(false)
     const [message, setMessage] = useState('');
     const navigate = useNavigate()
+    const sortedUsers = USERS.users.sort((a, b) => b.level - a.level);
     window.scrollTo(0, 0)
 
     const closeModal = () => {
@@ -30,30 +32,33 @@ const GameScreen = () => {
     const clickHandler = () => {
         if (!gameCtx.selectedCar) {
             setMessage(
-                "To race, first select a car"
+                "To Race, First Select A Car"
             );
             gameCtx.setAlertModal(true)
         } else {
-            setShowGameModal(true)
+            navigate("/gameOptions")
         }
     }
 
     return (
-        <div className="sm:ml-64 mt-5">
-            <div className="grid grid-flow-row md:grid-flow-col animate__animated animate__backInDown">
+        <div className="sm:ml-52 animate__animated animate__fadeIn">
+            <header className='md:mx-[13%]'>
+                <h2 className='text-[65px] text-center sm:text-[80px]'>HOTWHEELS RACING</h2>
+            </header>
+            <div className="mt-20">
                 {!gameCtx.countdown && (
                     <>
                         <div className="md:m-8">
                             <div className="flex justify-center">
                                 <div>
                                     {gameCtx.selectedCar.image ? (
-                                        <img className="h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src={gameCtx.selectedCar.image} alt="Car" />
+                                        <img className="animate__animated animate__bounce h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src={gameCtx.selectedCar.image} alt="Car" />
                                     ) : (
-                                        <img className="h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src={NoCarImg} alt="Default" />
+                                        <img className="animate__animated animate__bounce h-[200px] w-[330px] md:h-[300px] md:w-[490px]" src={NoCarImg} alt="Default" />
                                     )}
                                     <div>
-                                        <p className="text-center font-bold text-[27px]">{gameCtx.selectedCar.manufacturer}</p>
-                                        <p className="text-center font-normal text-[20px] leading-3">{gameCtx.selectedCar.model}</p>
+                                        <p className="text-center text-gray-700 font-mono font-bold text-[35px]">{gameCtx.selectedCar.manufacturer}</p>
+                                        <p className="text-center text-gray-600 font-mono text-[25px] leading-3">{gameCtx.selectedCar.model}</p>
                                     </div>
                                     <div className="mt-[10%] mb-[20px] flex justify-center">
                                         <button onClick={() => navigate("/mygarage")} class="fortnite-btn flex items-center justify-center h-[50px] w-[170px] md:w-[250px]">
@@ -77,18 +82,34 @@ const GameScreen = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-[10%] flex justify-center md:justify-start">
-                            <button onClick={() => clickHandler()} class="animate__animated animate__bounce fortnite-btn flex items-center justify-center h-[85px] w-80 md:w-100">
+                        <div className="mt-[5%] flex justify-center">
+                            <button onClick={() => clickHandler()} class=" fortnite-btn flex items-center justify-center h-[85px] w-80 md:w-100">
                                 <span class="fortnite-btn-inner p-2 pt-3 w-11/12 text-5xl truncate">Play</span>
                             </button>
                         </div>
                     </>
                 )}
                 <GameModal showGameModal={showGameModal} closeModal={closeModal} />
-                <LoseModal />
-                <WinModal />
                 <AlertModal message={message} />
             </div>
+            {!gameCtx.countdown && (
+                <div className="m-auto p-2 my-20 w-1/1 sm:w-1/2">
+                    <p className="collectionTitle w-full my-2 text-[30px] md:text-[40px] lg:text-[50px] text-center">Top Players</p>
+                    <div style={{ maxHeight: '420px', overflowY: 'auto' }}>
+                        {sortedUsers.map((item, index) => (
+                            <div className="p-2 flex m-2 rounded-lg gradient opacity-80 border-orange-800 border-2 ">
+                                <p className="my-auto mx-3 text-3xl text-gray-100 font-mono font-bold">{index + 1}</p>
+                                <img src={item.image} className="w-[50px]"></img>
+                                <div className="flex my-auto ml-2">
+                                    <p className="bg-orange-900 text-gray-100 text-xl py-1 px-4 rounded-xl font-mono font-bold">{item.level}</p>
+                                    <p className="my-auto ml-4 sm:ml-10 text-gray-100 text-lg font-mono font-bold">{item.name}</p>
+                                    <p className="my-auto ml-4 sm:ml-10 text-gray-100 text-lg font-mono font-bold">${item.credits}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
             <div>
                 {gameCtx.countdown !== null && gameCtx.countdown > 0 && (
                     <RacingScreen />

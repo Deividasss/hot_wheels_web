@@ -21,7 +21,7 @@ const Header = () => {
             <div className='sm:ml-64'>
                 <UserInfoBar />
             </div>
-            <div className='flex justify-end mr-8 mt-[-10%]'>
+            <div className='flex justify-end sm:mt-0 mr-8 mt-[-10%]'>
                 <button onClick={toggleSidebar} data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none  dark:text-gray-400 dark:hover:bg-[#C95500]">
                     <span class="sr-only">Open sidebar</span>
                     <svg class="w-7 h-7" aria-hidden="true" fill="#EC8940" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">

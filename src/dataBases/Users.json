@@ -1,0 +1,60 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "image": "https://cutewallpaper.org/24/profile-icon-png/icon-profile-bio-free-vector-graphic-on-pixabay.png",
+            "name": "Racer",
+            "level": 22,
+            "credits": 245581
+        },
+        {
+            "id": 2,
+            "image": "https://cutewallpaper.org/24/profile-icon-png/icon-profile-bio-free-vector-graphic-on-pixabay.png",
+            "name": "David",
+            "level": 12,
+            "credits": 8888581
+        },
+        {
+            "id": 3,
+            "image": "https://cutewallpaper.org/24/profile-icon-png/icon-profile-bio-free-vector-graphic-on-pixabay.png",
+            "name": "Mark",
+            "level": 35,
+            "credits": 8421
+        },
+        {
+            "id": 4,
+            "image": "https://cutewallpaper.org/24/profile-icon-png/icon-profile-bio-free-vector-graphic-on-pixabay.png",
+            "name": "Louren",
+            "level": 16,
+            "credits": 6455817
+        },
+        {
+            "id": 5,
+            "image": "https://cutewallpaper.org/24/profile-icon-png/icon-profile-bio-free-vector-graphic-on-pixabay.png",
+            "name": "Louren",
+            "level": 54,
+            "credits": 999500
+        },
+        {
+            "id": 6,
+            "image": "https://cutewallpaper.org/24/profile-icon-png/icon-profile-bio-free-vector-graphic-on-pixabay.png",
+            "name": "Louren",
+            "level": 25,
+            "credits": 9445581
+        },
+        {
+            "id": 7,
+            "image": "https://cutewallpaper.org/24/profile-icon-png/icon-profile-bio-free-vector-graphic-on-pixabay.png",
+            "name": "Louren",
+            "level": 46,
+            "credits": 7241745
+        },
+        {
+            "id": 8,
+            "image": "https://cutewallpaper.org/24/profile-icon-png/icon-profile-bio-free-vector-graphic-on-pixabay.png",
+            "name": "Louren",
+            "level": 38,
+            "credits": 2581
+        }
+    ]
+}
