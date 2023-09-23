@@ -34,7 +34,7 @@ function GameContextProvider({ children }) {
     const carTotal = selectedCar.speed + selectedCar.handling + selectedCar.acceleration
 
     const setTimer = () => {
-        setCountdown(5)
+        setCountdown(10)
     }
     const selectDificullty = (value, label) => {
         setSelectedDifficulty(value, label)
