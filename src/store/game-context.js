@@ -29,16 +29,15 @@ function GameContextProvider({ children }) {
     const [showAlertModal, setShowAlertModal] = useState(false);
     const [countdown, setCountdown] = useState(null);
     const [progress, setProgress] = useState(0);
-    const [selectedDifficulty, setSelectedDifficulty] = useState('');
+    const [selectedDifficulty, setSelectedDifficulty] = useState([{value: 0, label: ''}]);
     const [selectedCar, setSelectedCar] = useState("");
     const carTotal = selectedCar.speed + selectedCar.handling + selectedCar.acceleration
-
 
     const setTimer = () => {
         setCountdown(5)
     }
-    const selectDificullty = (value) => {
-        setSelectedDifficulty(value)
+    const selectDificullty = (value, label) => {
+        setSelectedDifficulty(value, label)
     }
     const closeModal = () => {
         setShowWinModal(false)
@@ -55,15 +54,15 @@ function GameContextProvider({ children }) {
 
             if (countdown === 0) {
                 clearInterval(interval);
-                const min = selectedDifficulty - Math.floor(Math.random() * (200 - 1) + 100);
-                const max = selectedDifficulty;
+                const min = selectedDifficulty.value - Math.floor(Math.random() * (200 - 1) + 100);
+                const max = selectedDifficulty.value;
                 const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
                 setRandomNumber(randomNum);
 
                 if (carTotal > randomNum) {
-                    if (selectedDifficulty === 350) {
+                    if (selectedDifficulty.value === 350) {
                         setMoney((prevMoney) => prevMoney + 50);
-                    } else if (selectedDifficulty === 600) {
+                    } else if (selectedDifficulty.value === 600) {
                         setMoney((prevMoney) => prevMoney + 200);
                     } else {
                         setMoney((prevMoney) => prevMoney + 350);
