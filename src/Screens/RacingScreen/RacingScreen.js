@@ -8,8 +8,8 @@ const RacingScreen = () => {
 
     return (
         <div>
-            <p className='collectionTitle w-full my-2 text-[75px] sm:text-[90px] text-center animate__animated animate__pulse animate__slow animate__infinite'>Racing...</p>
-            <div className='mt-10 mb-16'>
+            <p className='collectionTitle w-full text-[75px] sm:text-[90px] text-center animate__animated animate__pulse animate__slow animate__infinite'>Racing...</p>
+            <div className='mb-16'>
                 <p className='collectionTitle w-full mt-10 text-[30px] md:text-[25px] lg:text-[40px] text-center'>Time Left: {gameCtx.countdown}</p>
                 <div className=" flex justify-center">
                     <div class=" w-[80%] sm:w-[50%] bg-gray-200 rounded-full">

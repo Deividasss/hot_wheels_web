@@ -30,13 +30,13 @@ const WinModal = () => {
     useEffect(() => {
         if (gameCtx.winModal == true) {
             const interval = setInterval(() => {
-                if (credits < 350) {
-                    setCredits(credits + 1);
+                if (credits < gameCtx.winReward) {
+                    setCredits(credits + 5);
                 }
                 if (experience < 40) {
                     setExperience(experience + 1);
                 }
-            }, 1.5); // Change the interval duration (in milliseconds) if needed
+            }, 1); // Change the interval duration (in milliseconds) if needed
 
             return () => clearInterval(interval);
         }
@@ -81,17 +81,17 @@ const WinModal = () => {
                                             </div>
                                             <div className='mx-5'>
                                                 <p className='collectionTitle w-full mt-5 text-[25px] sm:text-[30px]'>Exp: +{experience}</p>
-                                                <p className='collectionTitle w-full text-[25px] sm:text-[30px]'>Credits: +{gameCtx.winReward}</p>
+                                                <p className='collectionTitle w-full text-[25px] sm:text-[30px]'>Credits: +{credits}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="bg-gray-50 px-4 py-3 flex justify-center sm:px-6">
-                                    <button onClick={closeModal} class="mx-2 fortnite-btn flex items-center justify-center h-[40px] w-28 md:w-100">
-                                        <span class="fortnite-btn-inner p-1 pt-1 w-9/12 text-1xl truncate">Close</span>
+                                    <button onClick={closeModal} class="mx-2 fortnite-btn flex items-center justify-center h-[50px] w-32 md:w-100">
+                                        <span class="fortnite-btn-inner p-2 pt-1 w-10/12 text-[20px] truncate">Close</span>
                                     </button>
-                                    <button onClick={restart} class="mx-2 fortnite-btn flex items-center justify-center h-[40px] w-28 md:w-100">
-                                        <span class="fortnite-btn-inner p-1 pt-1 w-9/12 text-1xl truncate">Restart</span>
+                                    <button onClick={restart} class="mx-2 fortnite-btn flex items-center justify-center h-[50px] w-32 md:w-100">
+                                        <span class="fortnite-btn-inner p-2 pt-1 w-10/12 text-[20px] truncate">Restart</span>
                                     </button>
                                 </div>
                             </Dialog.Panel>

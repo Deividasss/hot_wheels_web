@@ -31,7 +31,9 @@ function GameContextProvider({ children }) {
     const [countdown, setCountdown] = useState(null);
     const [progress, setProgress] = useState(0);
     const [selectedDifficulty, setSelectedDifficulty] = useState([{ value: 0, label: '' }]);
-    const winRewards = {easy: 50,normal: 200,hard: 350,};
+    const winRewards = { easy: 50, normal: 200, hard: 350, };
+    const lostMoneys = { easy: 25, normal: 120, hard: 200, };
+    const [lostResourses, setLostResourses] = useState()
     const [winReward, setWinReward] = useState()
     const [selectedCar, setSelectedCar] = useState("");
     const carTotal = selectedCar.speed + selectedCar.handling + selectedCar.acceleration
@@ -75,7 +77,16 @@ function GameContextProvider({ children }) {
                     setLevelCount((prevLevel) => prevLevel + 40);
                     setShowWinModal(true)
                 } else {
-                    setMoney((prevMoney) => prevMoney - 10);
+                    if (selectedDifficulty.value === 350) {
+                        setMoney((prevMoney) => prevMoney - lostMoneys.easy);
+                        setLostResourses(lostMoneys.easy)
+                    } else if (selectedDifficulty.value === 600) {
+                        setMoney((prevMoney) => prevMoney - lostMoneys.normal);
+                        setLostResourses(lostMoneys.normal)
+                    } else {
+                        setMoney((prevMoney) => prevMoney - lostMoneys.hard);
+                        setLostResourses(lostMoneys.hard)
+                    }
                     setLevelCount((prevLevel) => prevLevel + 20);
                     setShowLoseModal(true)
                 }
@@ -107,6 +118,7 @@ function GameContextProvider({ children }) {
         alertModal: showAlertModal,
         selectedCar: selectedCar,
         winReward: winReward,
+        lostResourses: lostResourses,
         setTimer: setTimer,
         selectDificullty: selectDificullty,
         closeModal: closeModal,
