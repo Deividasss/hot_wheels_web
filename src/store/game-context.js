@@ -11,6 +11,7 @@ export const GameContext = createContext({
     oponentSpeed: '',
     alertModal: false,
     selectedCar: [],
+    winMoney: [],
     setTimer: () => { },
     selectDificullty: (value) => { },
     closeModal: () => { },
@@ -29,12 +30,14 @@ function GameContextProvider({ children }) {
     const [showAlertModal, setShowAlertModal] = useState(false);
     const [countdown, setCountdown] = useState(null);
     const [progress, setProgress] = useState(0);
-    const [selectedDifficulty, setSelectedDifficulty] = useState([{value: 0, label: ''}]);
+    const [selectedDifficulty, setSelectedDifficulty] = useState([{ value: 0, label: '' }]);
+    const winRewards = {easy: 50,normal: 200,hard: 350,};
+    const [winReward, setWinReward] = useState()
     const [selectedCar, setSelectedCar] = useState("");
     const carTotal = selectedCar.speed + selectedCar.handling + selectedCar.acceleration
 
     const setTimer = () => {
-        setCountdown(10)
+        setCountdown(5)
     }
     const selectDificullty = (value, label) => {
         setSelectedDifficulty(value, label)
@@ -44,7 +47,6 @@ function GameContextProvider({ children }) {
         setShowLoseModal(false)
         setShowAlertModal(false)
     }
-
     useEffect(() => {
         if (countdown !== null) {
             const interval = setInterval(() => {
@@ -61,11 +63,14 @@ function GameContextProvider({ children }) {
 
                 if (carTotal > randomNum) {
                     if (selectedDifficulty.value === 350) {
-                        setMoney((prevMoney) => prevMoney + 50);
+                        setMoney((prevMoney) => prevMoney + winRewards.easy);
+                        setWinReward(winRewards.easy)
                     } else if (selectedDifficulty.value === 600) {
-                        setMoney((prevMoney) => prevMoney + 200);
+                        setMoney((prevMoney) => prevMoney + winRewards.normal);
+                        setWinReward(winRewards.normal)
                     } else {
-                        setMoney((prevMoney) => prevMoney + 350);
+                        setMoney((prevMoney) => prevMoney + winRewards.hard);
+                        setWinReward(winRewards.hard)
                     }
                     setLevelCount((prevLevel) => prevLevel + 40);
                     setShowWinModal(true)
@@ -101,6 +106,7 @@ function GameContextProvider({ children }) {
         loseModal: showLoseModal,
         alertModal: showAlertModal,
         selectedCar: selectedCar,
+        winReward: winReward,
         setTimer: setTimer,
         selectDificullty: selectDificullty,
         closeModal: closeModal,

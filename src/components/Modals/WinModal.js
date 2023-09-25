@@ -1,15 +1,47 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useRef, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { useContext } from 'react'
 import { GameContext } from '../../store/game-context'
+import { useNavigate } from 'react-router-dom'
 
 
 const WinModal = () => {
 
     const gameCtx = useContext(GameContext)
-    const [open, setOpen] = useState(true)
     const cancelButtonRef = useRef(null)
+    const navigate = useNavigate()
+    const [credits, setCredits] = useState(0);
+    const [experience, setExperience] = useState(0);
+
+    const closeModal = () => {
+        gameCtx.closeModal()
+        navigate("/gamescreen")
+        setCredits(0)
+        setExperience(0)
+    }
+    const restart = () => {
+        gameCtx.setTimer()
+        gameCtx.closeModal()
+        setCredits(0)
+        setExperience(0)
+    }
+
+    useEffect(() => {
+        if (gameCtx.winModal == true) {
+            const interval = setInterval(() => {
+                if (credits < 350) {
+                    setCredits(credits + 1);
+                }
+                if (experience < 40) {
+                    setExperience(experience + 1);
+                }
+            }, 1.5); // Change the interval duration (in milliseconds) if needed
+
+            return () => clearInterval(interval);
+        }
+    }, [credits, gameCtx.winModal, experience]);
+
 
     return (
         <Transition.Root show={gameCtx.winModal} as={Fragment}>
@@ -26,7 +58,7 @@ const WinModal = () => {
                     <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
                 </Transition.Child>
 
-                <div className="fixed inset-0 z-10 overflow-y-auto">
+                <div className="fixed inset-0 z-10 overflow-y-auto sm:ml-52">
                     <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
                         <Transition.Child
                             as={Fragment}
@@ -39,19 +71,27 @@ const WinModal = () => {
                         >
                             <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                                    <div className="mt-3 text-center">
+                                    <div className="mt-3">
                                         <div className="mt-2">
-                                            <p className="collectionTitle my-2 mx-5 text-[20px] sm:text-[70px] text-center">YOU WON!!!</p>
+                                            <p className="collectionTitle my-2 mx-5 text-[50px] sm:text-[70px] text-center">YOU WON!!!</p>
+                                            <div class="w-full mb-4">
+                                                <div
+                                                    class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"
+                                                ></div>
+                                            </div>
+                                            <div className='mx-5'>
+                                                <p className='collectionTitle w-full mt-5 text-[25px] sm:text-[30px]'>Exp: +{experience}</p>
+                                                <p className='collectionTitle w-full text-[25px] sm:text-[30px]'>Credits: +{gameCtx.winReward}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                    <button
-                                        type="button"
-                                        className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                                        onClick={gameCtx.closeModal}
-                                    >
-                                        Close
+                                <div className="bg-gray-50 px-4 py-3 flex justify-center sm:px-6">
+                                    <button onClick={closeModal} class="mx-2 fortnite-btn flex items-center justify-center h-[40px] w-28 md:w-100">
+                                        <span class="fortnite-btn-inner p-1 pt-1 w-9/12 text-1xl truncate">Close</span>
+                                    </button>
+                                    <button onClick={restart} class="mx-2 fortnite-btn flex items-center justify-center h-[40px] w-28 md:w-100">
+                                        <span class="fortnite-btn-inner p-1 pt-1 w-9/12 text-1xl truncate">Restart</span>
                                     </button>
                                 </div>
                             </Dialog.Panel>
