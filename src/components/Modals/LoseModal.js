@@ -36,7 +36,7 @@ const LoseModal = () => {
                 if (experience < 20) {
                     setExperience(experience + 1);
                 }
-            }, 1); // Change the interval duration (in milliseconds) if needed
+            }, 12); // Change the interval duration (in milliseconds) if needed
 
             return () => clearInterval(interval);
         }

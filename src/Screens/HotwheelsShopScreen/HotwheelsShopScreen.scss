@@ -1,0 +1,24 @@
+.car-groups {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .car-groups button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .car-groups button.active {
+    background-color: #f37b0ab6;
+    color: #fff;
+    font-weight: bold;
+    font-family: monospace;
+  }
+  
+ 
+  
+  

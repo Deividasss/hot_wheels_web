@@ -24,7 +24,7 @@ const AlertModal = ({ message, openAlert }) => {
                     <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
                 </Transition.Child>
 
-                <div className="fixed inset-0 z-10 overflow-y-auto">
+                <div className="fixed inset-0 z-10 overflow-y-auto sm:ml-52">
                     <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
                         <Transition.Child
                             as={Fragment}

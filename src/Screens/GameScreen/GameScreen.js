@@ -1,12 +1,7 @@
-import CarsModal from "../MyGarageScreen/MyGarageScreen"
 import GameModal from "../../components/Modals/GameModal"
-import LoseModal from "../../components/Modals/LoseModal"
-import WinModal from "../../components/Modals/WinModal"
-import UserInfoBar from "../../components/UserInfoBar/UserInfoBar"
 import { GameContext } from "../../store/game-context"
 import { useContext, useState } from "react"
 import "../GameScreen/GameScreen.scss"
-import { Alert } from "react-bootstrap"
 import AlertModal from "../../components/Modals/AlertModal"
 import NoCarImg from "../../assets/img/noCar.png"
 import 'animate.css';
@@ -61,7 +56,7 @@ const GameScreen = () => {
                                         <p className="text-center text-gray-600 font-mono text-[25px] leading-3">{gameCtx.selectedCar.model}</p>
                                     </div>
                                     <div className="mt-[10%] mb-[20px] flex justify-center">
-                                        <button onClick={() => navigate("/mygarage")} class="fortnite-btn flex items-center justify-center h-[50px] w-[170px] md:w-[250px]">
+                                        <button onClick={() => navigate("/selectCar")} class="fortnite-btn flex items-center justify-center h-[50px] w-[170px] md:w-[250px]">
                                             <span class="fortnite-btn-inner p-1 pt-1 w-11/12 text-2xl truncate">Select Car</span>
                                         </button>
                                     </div>

@@ -6,9 +6,10 @@ import { GameContext } from '../../store/game-context'
 import CARS_DATA from "../../dataBases/NewsData.json"
 import { useNavigate } from 'react-router-dom'
 import Pagination from '../../components/Pagination/Pagination'
+import "./SelectCarScreen.scss"
 
 
-const MyGarage = ({ cars }) => {
+const SelectCarScreen = () => {
 
     const gameCtx = useContext(GameContext)
     const navigate = useNavigate()
@@ -28,7 +29,7 @@ const MyGarage = ({ cars }) => {
 
     return (
         <>
-            <div className='animate__animated animate__fadeIn mt-5 sm:ml-52'>
+            <div className='animate__animated animate__fadeIn mt-5 sm:ml-64'>
                 <header className='md:mx-[13%] text-center md:text-left'>
                     <h2 className='garageTitle'>MY GARAGE</h2>
                     <form className=' md:m-0 mx-12 mb-12'>
@@ -45,10 +46,10 @@ const MyGarage = ({ cars }) => {
                 </header>
                 <hr className="mt-6 mb-8 m-auto bg-gray-300 rounded-sm p-[1px] w-[80%]"></hr>
                 <div className="md:w-[80%] md:m-auto md:p-[20px] grid md:grid-cols-4 flex justify-center">
-                    {currentTableData.filter(cars => cars.manufacturer.toLowerCase().includes(search)).map((item, index) => (
+                    {currentTableData.filter(cars => cars.manufacturer.toLowerCase().includes(search)).map((item) => (
                         <button
-                            key={index}
-                            onClick={() => navigate(`/car/${index}`)}
+                            key={item.value}
+                            onClick={() => { gameCtx.setSelectedCar(item); navigate("/gamescreen") }}
                             className='p-5 hover:scale-110 '
                         >
                             <div class=" max-w-[310px] bg-white border border-gray-200 rounded-lg shadow ">
@@ -91,4 +92,4 @@ const MyGarage = ({ cars }) => {
 
     )
 }
-export default MyGarage
+export default SelectCarScreen

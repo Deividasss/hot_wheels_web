@@ -19,7 +19,7 @@ const GameOptionsScreen = () => {
         gameCtx.setTimer()
     }
     return (
-        <div className="sm:ml-64 px-4 pb-4 pt-5 mt-2 sm:p-6 sm:pb-4">
+        <div className="sm:ml-52 px-4 pb-4 pt-5 mt-2 sm:p-6 sm:pb-4 h-screen flex justify-center items-center">
             {!gameCtx.countdown && (
                 <div>
                     <p className='collectionTitle w-full my-2 text-[55px] sm:text-[70px] text-center'>Please Select Difficulty</p>
