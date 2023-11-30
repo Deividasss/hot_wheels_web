@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { GameContext } from '../../store/game-context'
 import SelectCarPng from "../../assets/img/selectCar.png"
 
-const AlertModal = ({ message, openAlert }) => {
+const AlertModal = ({ message, openAlert, image }) => {
 
     const gameCtx = useContext(GameContext)
     const cancelButtonRef = useRef(null)
@@ -39,7 +39,7 @@ const AlertModal = ({ message, openAlert }) => {
                                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 ">
                                         <div className="mt-2 ">
-                                            <img className='animate__animated animate__pulse animate__infinite mx-auto p-5 w-52' src={SelectCarPng}></img>
+                                            <img className='animate__animated animate__pulse animate__infinite mx-auto p-5 w-52' src={image}></img>
                                             <p className="text-[20px] text-gray-700 sm:text-[30px] font-mono font-bold text-black">
                                                 {message}
                                             </p>

@@ -11,26 +11,29 @@ import MyGarage from './Screens/MyGarageScreen/MyGarageScreen';
 import CARS_DATA from './dataBases/NewsData.json'
 import CarDetails from './components/CarDetails/CarDetails';
 import HotwheelsShopScreen from './Screens/HotwheelsShopScreen/HotwheelsShopScreen';
+import ShopContextProvider from './store/shop-context';
 
 function App() {
   return (
     <>
       <Router>
-        <GameContextProvider>
-          <Header />
-          <Routes>
-            <Route>
-              <Route exact path='/' element={<HomeScreen />} />
-              <Route exact path='gamescreen' element={<GameScreen />} />
-              <Route exact path='selectCar' element={<SelectCarScreen/>} />
-              <Route exact path='gameOptions' element={<GameOptionsScreen/>} />
-              <Route exact path='myGarage' element={<MyGarage cars={CARS_DATA.cars}/>} />
-              <Route exact path='/car/:carId' element={<CarDetails cars={CARS_DATA.cars}/>} />
-              <Route exact path='hotWheelsShop' element={<HotwheelsShopScreen/>} />
-            </Route>
-          </Routes>
-          <Footer />
-        </GameContextProvider>
+        <ShopContextProvider>
+          <GameContextProvider>
+            <Header />
+            <Routes>
+              <Route>
+                <Route exact path='/' element={<HomeScreen />} />
+                <Route exact path='gamescreen' element={<GameScreen />} />
+                <Route exact path='selectCar' element={<SelectCarScreen />} />
+                <Route exact path='gameOptions' element={<GameOptionsScreen />} />
+                <Route exact path='myGarage' element={<MyGarage />} />
+                <Route exact path='/car/:id' element={<CarDetails />} />
+                <Route exact path='hotWheelsShop' element={<HotwheelsShopScreen />} />
+              </Route>
+            </Routes>
+            <Footer />
+          </GameContextProvider>
+        </ShopContextProvider>
       </Router >
     </>
   );

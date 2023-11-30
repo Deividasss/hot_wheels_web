@@ -10,6 +10,7 @@ export const GameContext = createContext({
     selectedDifficulty: '',
     oponentSpeed: '',
     alertModal: false,
+    userInfo: [],
     selectedCar: [],
     winMoney: [],
     setTimer: () => { },
@@ -33,10 +34,40 @@ function GameContextProvider({ children }) {
     const [selectedDifficulty, setSelectedDifficulty] = useState([{ value: 0, label: '' }]);
     const winRewards = { easy: 50, normal: 200, hard: 350, };
     const lostMoneys = { easy: 25, normal: 120, hard: 200, };
-    const [lostResourses, setLostResourses] = useState()
+    const [lostMoney, setLostMoney] = useState()
     const [winReward, setWinReward] = useState()
     const [selectedCar, setSelectedCar] = useState("");
     const carTotal = selectedCar.speed + selectedCar.handling + selectedCar.acceleration
+    const [userInfo, setUserInfo] = useState([{
+        name: "Deividas",
+        level: 1,
+        moneys: 200,
+        levelCount: 0,
+        nextLevel: 200
+    }]);
+
+    useEffect(() => {
+        const savedUserInfo = JSON.parse(localStorage.getItem('userInfo'));
+
+        if (savedUserInfo) {
+            const user = savedUserInfo[0];
+            setMoney(user.moneys);
+            setLevel(user.level);
+            setLevelCount(user.levelCount);
+            setNextLevel(user.nextLevel)
+            setUserInfo(savedUserInfo);
+        }
+    }, []);
+
+    useEffect(() => {
+        const itemInLocalStorage = localStorage.getItem('userInfo');
+
+        if (itemInLocalStorage) {
+            console.log('Item exists in local storage:', itemInLocalStorage);
+        } else {
+            localStorage.setItem('userInfo', JSON.stringify(userInfo));
+        }
+    }, []);
 
     const setTimer = () => {
         setCountdown(5)
@@ -49,6 +80,7 @@ function GameContextProvider({ children }) {
         setShowLoseModal(false)
         setShowAlertModal(false)
     }
+
     useEffect(() => {
         if (countdown !== null) {
             const interval = setInterval(() => {
@@ -63,38 +95,73 @@ function GameContextProvider({ children }) {
                 const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
                 setRandomNumber(randomNum);
 
+                let updatedMoney = money;
+                let updatedLevelCount = levelCount;
+                let userLevel = level
+                let nextLevels = nextLevel
+
                 if (carTotal > randomNum) {
+
                     if (selectedDifficulty.value === 350) {
-                        setMoney((prevMoney) => prevMoney + winRewards.easy);
+                        updatedMoney += winRewards.easy;
+                        updatedLevelCount += 60;
                         setWinReward(winRewards.easy)
                     } else if (selectedDifficulty.value === 600) {
-                        setMoney((prevMoney) => prevMoney + winRewards.normal);
+                        updatedMoney += winRewards.normal;
+                        updatedLevelCount += 40;
                         setWinReward(winRewards.normal)
                     } else {
-                        setMoney((prevMoney) => prevMoney + winRewards.hard);
+                        updatedMoney += winRewards.hard;
+                        updatedLevelCount += 40;
                         setWinReward(winRewards.hard)
                     }
-                    setLevelCount((prevLevel) => prevLevel + 40);
-                    setShowWinModal(true)
+
+                    setMoney(updatedMoney);
+                    setLevelCount(updatedLevelCount);
+
+                    const updatedUserInfo = userInfo.map((user) => ({
+                        ...user,
+                        moneys: updatedMoney,
+                        levelCount: updatedLevelCount,
+                        level: userLevel,
+                        nextLevel: nextLevels,
+                    }));
+                    setUserInfo(updatedUserInfo);
+                    localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
+                    setShowWinModal(true);
                 } else {
+                    let updatedLostResources;
+
                     if (selectedDifficulty.value === 350) {
-                        setMoney((prevMoney) => prevMoney - lostMoneys.easy);
-                        setLostResourses(lostMoneys.easy)
+                        updatedMoney -= lostMoneys.easy;
+                        updatedLostResources = lostMoneys.easy;
                     } else if (selectedDifficulty.value === 600) {
-                        setMoney((prevMoney) => prevMoney - lostMoneys.normal);
-                        setLostResourses(lostMoneys.normal)
+                        updatedMoney -= lostMoneys.normal;
+                        updatedLostResources = lostMoneys.normal;
                     } else {
-                        setMoney((prevMoney) => prevMoney - lostMoneys.hard);
-                        setLostResourses(lostMoneys.hard)
+                        updatedMoney -= lostMoneys.hard;
+                        updatedLostResources = lostMoneys.hard;
                     }
-                    setLevelCount((prevLevel) => prevLevel + 20);
-                    setShowLoseModal(true)
+
+                    setMoney(updatedMoney);
+                    setLostMoney(updatedLostResources);
+                    setLevelCount(updatedLevelCount + 20);
+                    setShowLoseModal(true);
+                    const updatedUserInfo = userInfo.map((user) => ({
+                        ...user,
+                        moneys: updatedMoney,
+                        levelCount: updatedLevelCount,
+                        level: userLevel,
+                    }));
+                    setUserInfo(updatedUserInfo);
+                    localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
+
                 }
 
-                if (levelCount >= nextLevel) {
+                if (updatedLevelCount >= nextLevels) {
                     setLevel((prevLeve) => prevLeve + 1);
                     setLevelCount(0);
-                    setNextLevel((prevLVL) => prevLVL * 1.2)
+                    setNextLevel(nextLevels * 1.2);
                 }
                 setProgress(0);
             }
@@ -118,7 +185,8 @@ function GameContextProvider({ children }) {
         alertModal: showAlertModal,
         selectedCar: selectedCar,
         winReward: winReward,
-        lostResourses: lostResourses,
+        lostMoney: lostMoney,
+        userInfo: userInfo,
         setTimer: setTimer,
         selectDificullty: selectDificullty,
         closeModal: closeModal,

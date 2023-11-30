@@ -6,6 +6,7 @@
             "manufacturer": "Mercedes Benz",
             "model": "C63 AMG",
             "speed": 290,
+            "price": 6500,
             "handling": 270,
             "acceleration": 280,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -16,6 +17,7 @@
             "manufacturer": "McLaren",
             "model": "P1",
             "speed": 220,
+            "price": 4300,
             "handling": 150,
             "acceleration": 200,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -26,6 +28,7 @@
             "manufacturer": "Mercedes Benz",
             "model": "C63 AMG",
             "speed": 290,
+            "price": 6500,
             "handling": 270,
             "acceleration": 280,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -36,6 +39,7 @@
             "manufacturer": "McLaren",
             "model": "P1",
             "speed": 220,
+            "price": 8200,
             "handling": 150,
             "acceleration": 200,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -43,41 +47,45 @@
     ],
     "Treasure Hunt": [
         {
-            "id": 1,
+            "id": 5,
             "image": "https://banner2.cleanpng.com/20180706/vwc/kisspng-car-toy-hot-wheels-sound-game-hot-wheels-extreme-5b3f3d615ea545.3378481215308711373877.jpg",
             "manufacturer": "McLaren",
             "model": "P1",
             "speed": 220,
+            "price": 11000,
             "handling": 150,
             "acceleration": 200,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         {
-            "id": 2,
+            "id": 6,
             "image": "https://freepngimg.com/thumb/hot_wheels/27924-7-hot-wheels-file.png",
             "manufacturer": "Mercedes Benz",
             "model": "C63 AMG",
             "speed": 290,
+            "price": 10500,
             "handling": 270,
             "acceleration": 280,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         {
-            "id": 3,
+            "id": 7,
             "image": "https://banner2.cleanpng.com/20180706/vwc/kisspng-car-toy-hot-wheels-sound-game-hot-wheels-extreme-5b3f3d615ea545.3378481215308711373877.jpg",
             "manufacturer": "McLaren",
             "model": "P1",
             "speed": 220,
+            "price": 13400,
             "handling": 150,
             "acceleration": 200,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         {
-            "id": 4,
+            "id": 8,
             "image": "https://freepngimg.com/thumb/hot_wheels/27924-7-hot-wheels-file.png",
             "manufacturer": "Mercedes Benz",
             "model": "C63 AMG",
             "speed": 290,
+            "price": 12000,
             "handling": 270,
             "acceleration": 280,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -85,41 +93,45 @@
     ],
     "Super Treasure Hunt": [
         {
-            "id": 1,
+            "id": 9,
             "image": "https://freepngimg.com/thumb/hot_wheels/27924-7-hot-wheels-file.png",
             "manufacturer": "Mercedes Benz",
             "model": "C63 AMG",
             "speed": 290,
+            "price": 18500,
             "handling": 270,
             "acceleration": 280,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         {
-            "id": 2,
+            "id": 10,
             "image": "https://banner2.cleanpng.com/20180706/vwc/kisspng-car-toy-hot-wheels-sound-game-hot-wheels-extreme-5b3f3d615ea545.3378481215308711373877.jpg",
             "manufacturer": "McLaren",
             "model": "P1",
             "speed": 220,
+            "price": 16500,
             "handling": 150,
             "acceleration": 200,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         {
-            "id": 3,
+            "id": 11,
             "image": "https://freepngimg.com/thumb/hot_wheels/27924-7-hot-wheels-file.png",
             "manufacturer": "Mercedes Benz",
             "model": "C63 AMG",
             "speed": 290,
+            "price": 21000,
             "handling": 270,
             "acceleration": 280,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         {
-            "id": 4,
+            "id": 12,
             "image": "https://banner2.cleanpng.com/20180706/vwc/kisspng-car-toy-hot-wheels-sound-game-hot-wheels-extreme-5b3f3d615ea545.3378481215308711373877.jpg",
             "manufacturer": "McLaren",
             "model": "P1",
             "speed": 220,
+            "price": 19400,
             "handling": 150,
             "acceleration": 200,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -127,41 +139,45 @@
     ],
     "Mattel Collector": [
         {
-            "id": 1,
+            "id": 13,
             "image": "https://banner2.cleanpng.com/20180706/vwc/kisspng-car-toy-hot-wheels-sound-game-hot-wheels-extreme-5b3f3d615ea545.3378481215308711373877.jpg",
             "manufacturer": "McLaren",
             "model": "P1",
             "speed": 220,
+            "price": 38000,
             "handling": 150,
             "acceleration": 200,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         {
-            "id": 2,
+            "id": 14,
             "image": "https://freepngimg.com/thumb/hot_wheels/27924-7-hot-wheels-file.png",
             "manufacturer": "Mercedes Benz",
             "model": "C63 AMG",
             "speed": 290,
+            "price": 45000,
             "handling": 270,
             "acceleration": 280,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         {
-            "id": 3,
+            "id": 15,
             "image": "https://banner2.cleanpng.com/20180706/vwc/kisspng-car-toy-hot-wheels-sound-game-hot-wheels-extreme-5b3f3d615ea545.3378481215308711373877.jpg",
             "manufacturer": "McLaren",
             "model": "P1",
             "speed": 220,
+            "price": 42000,
             "handling": 150,
             "acceleration": 200,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         {
-            "id": 4,
+            "id": 16,
             "image": "https://freepngimg.com/thumb/hot_wheels/27924-7-hot-wheels-file.png",
             "manufacturer": "Mercedes Benz",
             "model": "C63 AMG",
             "speed": 290,
+            "price": 36500,
             "handling": 270,
             "acceleration": 280,
             "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."

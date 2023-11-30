@@ -8,6 +8,7 @@ import 'animate.css';
 import { Navigate, useNavigate } from "react-router-dom"
 import RacingScreen from "../RacingScreen/RacingScreen.js"
 import USERS from "../../dataBases/Users.json"
+import SelectCarPng from "../../assets/img/selectCar.png"
 
 const GameScreen = () => {
 
@@ -85,7 +86,7 @@ const GameScreen = () => {
                     </>
                 )}
                 <GameModal showGameModal={showGameModal} closeModal={closeModal} />
-                <AlertModal message={message} />
+                <AlertModal message={message} image={SelectCarPng} />
             </div>
             {!gameCtx.countdown && (
                 <div className="m-auto p-2 my-20 w-1/1 sm:w-1/2">

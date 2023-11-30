@@ -7,11 +7,13 @@ import CARS_DATA from "../../dataBases/NewsData.json"
 import { useNavigate } from 'react-router-dom'
 import Pagination from '../../components/Pagination/Pagination'
 import "./SelectCarScreen.scss"
+import { ShopContext } from '../../store/shop-context'
 
 
 const SelectCarScreen = () => {
 
     const gameCtx = useContext(GameContext)
+    const shopCtx = useContext(ShopContext)
     const navigate = useNavigate()
     const [search, setSearch] = useState('')
     window.scrollTo(0, 0)
@@ -20,7 +22,7 @@ const SelectCarScreen = () => {
     const currentTableData = useMemo(() => {
         const firstPageIndex = (currentPage - 1) * PageSize;
         const lastPageIndex = firstPageIndex + PageSize;
-        return CARS_DATA.cars.slice(firstPageIndex, lastPageIndex);
+        return shopCtx.garageCars.slice(firstPageIndex, lastPageIndex);
     }, [currentPage]);
 
     const handleChange = (e) => {
@@ -81,7 +83,7 @@ const SelectCarScreen = () => {
                 <div className='flex justify-center mt-[20px] mb-20'>
                     <Pagination
                         className="pagination-bar"
-                        totalCount={CARS_DATA.cars.length}
+                        totalCount={shopCtx.garageCars.length}
                         currentPage={currentPage}
                         pageSize={PageSize}
                         onPageChange={page => setCurrentPage(page)}

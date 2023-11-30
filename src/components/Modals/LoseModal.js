@@ -30,7 +30,7 @@ const LoseModal = () => {
     useEffect(() => {
         if (gameCtx.loseModal == true) {
             const interval = setInterval(() => {
-                if (credits < gameCtx.lostResourses) {
+                if (credits < gameCtx.lostMoney) {
                     setCredits(credits + 5);
                 }
                 if (experience < 20) {
@@ -80,7 +80,7 @@ const LoseModal = () => {
                                                 ></div>
                                             </div>
                                             <div className='mx-5'>
-                                                <p className='collectionTitle w-full mt-5 text-[25px] sm:text-[30px]'>Exp: -{experience}</p>
+                                                <p className='collectionTitle w-full mt-5 text-[25px] sm:text-[30px]'>Exp: +{experience}</p>
                                                 <p className='collectionTitle w-full text-[25px] sm:text-[30px]'>Credits: -{credits}</p>
                                             </div>
                                         </div>

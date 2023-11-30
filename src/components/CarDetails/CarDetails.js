@@ -1,11 +1,26 @@
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ShopContext } from "../../store/shop-context";
 
 const CarDetails = ({ cars }) => {
-    const { carId } = useParams();
-    const car = cars[carId];
+    const shopCtx = useContext(ShopContext)
+    const { id } = useParams();
     window.scrollTo(0, 0)
     const navigate = useNavigate()
+
+    const findCarById = () => {
+        for (const category in shopCtx.garageCars) {
+            const car = shopCtx.garageCars.find((car) => car.id === parseInt(id));
+            if (car) return car;
+        }
+        return 'Error'; // Car not found
+    };
+
+    const car = findCarById();
+
+    console.log(car)
+
     return (
         <div className="mt-20 mb-10 sm:ml-52 animate__animated animate__fadeIn">
             <header className='md:mx-[13%] p-2 text-center'>
@@ -38,7 +53,7 @@ const CarDetails = ({ cars }) => {
                     </div>
                 </div>
                 <div className="sm:my-14 my-10 px-4 py-3 sm:px-6 flex justify-center">
-                    <button onClick={()=>navigate("/myGarage")} class=" fortnite-btn flex items-center justify-center h-[60px] w-52">
+                    <button onClick={() => navigate("/myGarage")} class=" fortnite-btn flex items-center justify-center h-[60px] w-52">
                         <span class="fortnite-btn-inner p-1 pt-1 w-10/12 text-xl truncate">Back</span>
                     </button>
                 </div>
